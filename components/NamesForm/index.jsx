@@ -1,10 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Colors } from '../styleVariables';
 
 function NamesForm() {
-
 
   return (
     <View style={styles.container}>
@@ -23,10 +22,13 @@ function NamesForm() {
             placeholder='Player 2'
             placeholderTextColor={Colors.semiLight}
           />
-          <Button
-            style={styles.namesFormBtn}
-            title="Confirm"
-          />
+          <Pressable>
+            <View style={styles.namesFormBtn}>
+              <Text style={styles.namesFormBtnText}>
+                Confirm
+              </Text>
+            </View>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -63,14 +65,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   namesFormBtn: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 15,
+    backgroundColor: Colors.accent,
+    borderRadius: 10,
 
+  },
+  namesFormBtnText: {
+    fontSize: 16,
+    fontWeight: 600,
+    color: Colors.light,
   }
 });
-
-
-
-
-
 
 
 export default NamesForm;
