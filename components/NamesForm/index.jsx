@@ -2,7 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Colors } from '../styleVariables';
+import NamesFormInput from '../NamesFormInput';
 import NamesFormBtn from '../NamesFormBtn';
+import ErrorNamesInput from '../ErrorNamesInput';
 
 //CRL + D -- перезапуск приложения
 //условный рендеринг && -- полезно
@@ -11,22 +13,17 @@ function NamesForm() {
 
   return (
     <View style={styles.container}>
+
+      <ErrorNamesInput text="Please, enter players' names!"/>
+
       <View style={styles.namesForm}>
         <Text style={styles.namesFormTitle}>
           Who will play?
         </Text>
         <View style={styles.namesFormInputWrap}>
-          <TextInput
-            style={styles.namesFormInput}
-            placeholder='Player 1'
-            placeholderTextColor={Colors.semiLight}
-          />
-          <TextInput
-            style={styles.namesFormInput}
-            placeholder='Player 2'
-            placeholderTextColor={Colors.semiLight}
-          />
-          <NamesFormBtn />
+          <NamesFormInput placeholder='Player 1' />
+          <NamesFormInput placeholder='Player 2' />
+          <NamesFormBtn title='Confirm' />
         </View>
       </View>
     </View>
@@ -52,15 +49,6 @@ const styles = StyleSheet.create({
   namesFormInputWrap: {
     alignSelf: 'stretch',
     gap: 15,
-  },
-  namesFormInput: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    fontSize: 16,
-    fontWeight: 600,
-    color: Colors.light,
-    backgroundColor: Colors.semiDark,
-    borderRadius: 10,
   },
 });
 

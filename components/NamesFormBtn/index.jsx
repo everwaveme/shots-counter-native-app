@@ -3,27 +3,37 @@ import { useState } from 'react';
 import { StyleSheet, Pressable, Text, View, Animated } from 'react-native';
 import { Colors } from '../styleVariables';
 
-function NamesFormBtn() {
+function NamesFormBtn({ title }) {
   const btnAnimatedValue = new Animated.Value(100);
   const btnColor = btnAnimatedValue.interpolate({
     inputRange: [0, 100],
     outputRange: [Colors.accentHover, Colors.accent]
   });
 
-  Animated.timing(btnAnimatedValue, {
-    toValue: 0,
-    duration: 300,
-    useNativeDriver: true,
-  }).start();
+  const fadeInBtn = () => {
+    Animated.timing(btnAnimatedValue, {
+      toValue: 0,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const fadeOutBtn = () => {
+    Animated.timing(btnAnimatedValue, {
+      toValue: 100,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+  };
 
   return (
-    <Pressable>
+    <Pressable onPressIn={fadeInBtn} onPressOut={fadeOutBtn}>
       <Animated.View style={{
         ...styles.namesFormBtn,
         backgroundColor: btnColor
       }}>
         <Text style={styles.namesFormBtnText}>
-          Confirm
+          {title}
         </Text>
       </Animated.View>
     </Pressable>
