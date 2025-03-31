@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
 import { StyleSheet, Pressable, Text, View, Animated } from 'react-native';
 import { Colors } from '../styleVariables';
 
-function NamesFormBtn({ title }) {
+function NamesFormBtn({ title, handleConfirmCLick }) {
   const btnAnimatedValue = new Animated.Value(100);
   const btnColor = btnAnimatedValue.interpolate({
     inputRange: [0, 100],
@@ -27,7 +26,7 @@ function NamesFormBtn({ title }) {
   };
 
   return (
-    <Pressable onPressIn={fadeInBtn} onPressOut={fadeOutBtn}>
+    <Pressable onPressIn={fadeInBtn} onPressOut={fadeOutBtn} onPress={handleConfirmCLick} >
       <Animated.View style={{
         ...styles.namesFormBtn,
         backgroundColor: btnColor

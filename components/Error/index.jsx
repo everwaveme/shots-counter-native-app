@@ -1,13 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../styleVariables';
+import { useState, useEffect } from 'react';
 
-function ErrorNamesInput({ text }) {
+function Error({ error }) {
+  const [isShowError, setIsShowError] = useState(false);
+
+  useEffect(() => {
+    if (!error) {
+      return;
+    }
+    setIsShowError(true);
+    const errorTimer = setTimeout(() => {
+      setIsShowError(false);
+    }, 3000);
+    return () => {
+      clearTimeout(errorTimer);
+    }
+  }, [error])
+
+  if (!isShowError) {
+    return (
+      <></>
+    );
+  }
 
   return (
     <View style={styles.errorWrap}>
       <Text style={styles.errorText}>
-        {text}
+        {error}
       </Text>
     </View>
   );
@@ -29,4 +50,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ErrorNamesInput;
+export default Error;

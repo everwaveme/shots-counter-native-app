@@ -1,21 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../styleVariables';
 import NamesFormInput from '../NamesFormInput';
 import NamesFormBtn from '../NamesFormBtn';
-import ErrorNamesInput from '../ErrorNamesInput';
+import Error from '../Error';
 
 //CRL + D -- перезапуск приложения
 //условный рендеринг && -- полезно
 
+//ВЕРНУТЬ КНОПКУ + АНИМАИЦ Я ДЛЯ ERROR
+
 function NamesForm() {
+  const [isNamesConfirmed, setIsNamesConfirmed] = useState(false);
+
+  const [isConfirmError, setIsConfirmError] = useState(false);
+
+  const handleConfirmCLick = () => {
+    //if для Error
+    setIsConfirmError(true);
+  };
 
   return (
     <View style={styles.container}>
-
-      <ErrorNamesInput text="Please, enter players' names!"/>
-
+      {isConfirmError && <Error error="Please, enter players' names!" />}
+      
       <View style={styles.namesForm}>
         <Text style={styles.namesFormTitle}>
           Who will play?
@@ -23,7 +32,7 @@ function NamesForm() {
         <View style={styles.namesFormInputWrap}>
           <NamesFormInput placeholder='Player 1' />
           <NamesFormInput placeholder='Player 2' />
-          <NamesFormBtn title='Confirm' />
+          <NamesFormBtn title='Confirm' handleConfirmCLick={handleConfirmCLick} />
         </View>
       </View>
     </View>
