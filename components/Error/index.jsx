@@ -1,10 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, Animated } from 'react-native';
 import { Colors } from '../styleVariables';
 import { useState, useEffect } from 'react';
 
 function Error({ error }) {
   const [isShowError, setIsShowError] = useState(false);
+  const errorAnimatedValue = new Animated.Value(-100);
+  const onEnterError = () => {
+    Animated.timing(errorAnimatedValue, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true
+    }).start();
+  };
+
 
   useEffect(() => {
     if (!error) {
@@ -26,11 +35,19 @@ function Error({ error }) {
   }
 
   return (
-    <View style={styles.errorWrap}>
+    <Animated.View
+      style={{
+        ...styles.errorWrap,
+        transform: [
+          { translateY: errorAnimatedValue }
+        ]
+      }}
+      onLayout={onEnterError}
+    >
       <Text style={styles.errorText}>
         {error}
       </Text>
-    </View>
+    </Animated.View>
   );
 }
 
