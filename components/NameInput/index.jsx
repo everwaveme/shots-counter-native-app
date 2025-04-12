@@ -1,0 +1,27 @@
+import { StyleSheet, TextInput } from 'react-native';
+import { Colors } from '../styleVariables';
+
+function NameInput({ value, placeholder, onChangeText }) {
+
+  return (
+    <TextInput
+      style={styles.nameInput}
+      value={value}
+      placeholder={placeholder}
+      placeholderTextColor={Colors.semiLight}
+      maxLength={20}
+      onChangeText={onChangeText}
+    />
+  );
+}
+
+const styles = StyleSheet.create({
+  nameInput: {
+    fontSize: 16,
+    fontWeight: 700,
+    color: Colors.light,
+    textAlign: 'center',
+  }
+});
+
+export default NameInput;

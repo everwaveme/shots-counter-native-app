@@ -1,18 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
-import NamesForm from './components/NamesForm';
+import Stats from './components/Stats';
 
 function App() {
   return (
     <>
-      <NamesForm />
-      <StatusBar style="auto" />
+      <Stats />
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  
-});
 
 export default App;

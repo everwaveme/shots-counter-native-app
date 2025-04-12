@@ -6,7 +6,7 @@ import NamesFormInput from '../NamesFormInput';
 import NamesFormBtn from '../NamesFormBtn';
 import Error from '../Error';
 
-//CRL + D -- перезапуск приложения
+//CRL + M -- перезапуск приложения
 //условный рендеринг && -- полезно
 
 //ВЕРНУТЬ КНОПКУ

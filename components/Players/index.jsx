@@ -1,17 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image, TextInput } from 'react-native';
 import { useState } from 'react';
+import { Colors } from '../styleVariables';
+import NameInput from '../NameInput';
+
+//Изменить паддинг после добавления статус бара
 
 function Players() {
+  const [playerName, setPlayerName] = useState({
+    firstPlayer: '',
+    secondPlayer: '',
+  });
 
   return (
     <>
       <View style={styles.container}>
         <View style={styles.wrap}>
           <View style={styles.infoBox}>
-            <Text style={styles.name}>
-              Judd Trump
-            </Text>
+            <NameInput
+              placeholder='Player 1'
+              value={playerName.firstPlayer}
+              onChangeText={(text) => {
+                setPlayerName({
+                  ...playerName,
+                  firstPlayer: text
+                })
+              }}
+            />
           </View>
 
           <View style={styles.vsWrap}>
@@ -23,9 +37,16 @@ function Players() {
           </View>
 
           <View style={styles.infoBox}>
-            <Text style={styles.name}>
-              Neil Robertson
-            </Text>
+            <NameInput
+              placeholder='Player 2'
+              value={playerName.secondPlayer}
+              onChangeText={(text) => {
+                setPlayerName({
+                  ...playerName,
+                  secondPlayer: text
+                })
+              }}
+            />
           </View>
         </View>
       </View>
@@ -35,7 +56,7 @@ function Players() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 25,
+    paddingVertical: 55,
   },
   wrap: {
     flexDirection: 'row',
@@ -43,30 +64,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoBox: {
-    flexBasis: '40%',
+    flexBasis: '45%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  name: {
-    fontSize: 16,
-    fontWeight: 700,
-    color: '#fff',
-    textAlign: 'center',
-  },
-
-
   vsWrap: {
-    flexBasis: '20%',
+    flexBasis: '10%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   vsIcon: {
     width: 10,
     height: 10,
-  }
+  },
 });
 
 export default Players;
