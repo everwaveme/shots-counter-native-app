@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { Colors } from '../styleVariables';
 import NameInput from '../NameInput';
 
-//Изменить паддинг после добавления статус бара
-
 function Players() {
   const [playerName, setPlayerName] = useState({
     firstPlayer: '',
@@ -56,7 +54,7 @@ function Players() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 20,
+    paddingVertical: 25,
   },
   wrap: {
     flexDirection: 'row',
