@@ -1,6 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
 import { TextInput, StyleSheet } from "react-native";
 import { Colors } from '../styleVariables';
+
+//Удалить компонент
 
 function NamesFormInput({ placeholder }) {
   return (

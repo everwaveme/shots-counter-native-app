@@ -9,7 +9,7 @@ import Error from '../Error';
 //CRL + M -- перезапуск приложения
 //условный рендеринг && -- полезно
 
-//ВЕРНУТЬ КНОПКУ
+//Удалить компонент
 
 function NamesForm() {
   const [isNamesConfirmed, setIsNamesConfirmed] = useState(false);

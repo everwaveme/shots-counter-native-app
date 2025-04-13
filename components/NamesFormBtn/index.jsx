@@ -1,6 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Pressable, Text, View, Animated } from 'react-native';
 import { Colors } from '../styleVariables';
+
+//Удалить компонент
 
 function NamesFormBtn({ title, handleConfirmCLick }) {
   const btnAnimatedValue = new Animated.Value(100);

@@ -2,6 +2,8 @@ import { Dimensions, StyleSheet, Text, View, Animated } from 'react-native';
 import { Colors } from '../styleVariables';
 import { useState, useEffect } from 'react';
 
+//Удалить компонент
+
 function Error({ error }) {
   const [isShowError, setIsShowError] = useState(false);
   const errorAnimatedValue = new Animated.Value(-100);
