@@ -1,15 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from './components/styleVariables';
 import Players from './components/Players';
 import Stats from './components/Stats';
 
 function App() {
+
   return (
-    <View style={styles.container}>
-      <Players />
-      <Stats />
-    </View>
+    <SafeAreaProvider>
+      <StatusBar style='light' />
+      <SafeAreaView style={styles.container} edges={['top']}>
+        <Players />
+        <Stats />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
