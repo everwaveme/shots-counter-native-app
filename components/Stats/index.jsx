@@ -160,11 +160,10 @@ const styles = StyleSheet.create({
   },
   statsText: {
     fontSize: 16,
-    fontWeight: 500,
+    fontFamily: 'PlusJakartaSansBold',
     color: Colors.accent,
     textAlign: 'center',
   },
-
   statsCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',

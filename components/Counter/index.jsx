@@ -3,6 +3,7 @@ import { Colors } from '../styleVariables';
 import { useRef } from 'react';
 
 function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed }) {
+
   const btnAnimatedValue = {
     pottedBtn: useRef(new Animated.Value(100)).current,
     missedBtn: useRef(new Animated.Value(100)).current,
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
 
   statsPlayerText: {
     fontSize: 16,
-    fontWeight: 600,
+    fontFamily: 'PlusJakartaSansBold',
     color: Colors.light,
     textAlign: 'center',
   },
