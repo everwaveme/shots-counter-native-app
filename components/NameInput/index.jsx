@@ -9,7 +9,7 @@ function NameInput({ value, placeholder, onChangeText }) {
       value={value}
       placeholder={placeholder}
       placeholderTextColor={Colors.semiLight}
-      maxLength={20}
+      maxLength={18}
       onChangeText={onChangeText}
     />
   );

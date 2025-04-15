@@ -84,66 +84,296 @@ function Stats() {
   return (
     <View style={styles.container}>
 
-    {/* //POTTED SUCCESS */}
-      <View style={styles.statsTextWrap}>
-        <Text style={styles.statsText}>
-          Pot Success
-        </Text>
+      {/* POTTED SUCCESS */}
+      <View style={styles.statsField}>
+
+        <View style={styles.statsTextWrap}>
+          <Text style={styles.statsText}>
+            Pot Success
+          </Text>
+        </View>
+
+        <View style={styles.statsCounterWrap}>
+
+          <Counter
+            percentage={firstPlayerPer.potSuccessPer.toFixed(2)}
+            potted={firstPlayerStats.potSuccess.potted}
+            allShots={firstPlayerStats.potSuccess.allShots}
+            onPressPotted={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                potSuccess: {
+                  ...firstPlayerStats.potSuccess,
+                  potted: firstPlayerStats.potSuccess.potted + 1,
+                  allShots: firstPlayerStats.potSuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                potSuccess: {
+                  ...firstPlayerStats.potSuccess,
+                  allShots: firstPlayerStats.potSuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+
+          <Counter
+            percentage={secondPlayerPer.potSuccessPer.toFixed(2)}
+            potted={secondPlayerStats.potSuccess.potted}
+            allShots={secondPlayerStats.potSuccess.allShots}
+            onPressPotted={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                potSuccess: {
+                  ...secondPlayerStats.potSuccess,
+                  potted: secondPlayerStats.potSuccess.potted + 1,
+                  allShots: secondPlayerStats.potSuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                potSuccess: {
+                  ...secondPlayerStats.potSuccess,
+                  allShots: secondPlayerStats.potSuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+
+        </View>
       </View>
 
-      <View style={styles.statsCard}>
+      {/* LONG POT SUCCESS */}
+      <View style={styles.statsField}>
 
-        <Counter
-          percentage={firstPlayerPer.potSuccessPer.toFixed(2)}
-          potted={firstPlayerStats.potSuccess.potted}
-          allShots={firstPlayerStats.potSuccess.allShots}
-          onPressPotted={() => {
-            setFirstPlayerStats({
-              ...firstPlayerStats,
-              potSuccess: {
-                ...firstPlayerStats.potSuccess,
-                potted: firstPlayerStats.potSuccess.potted + 1,
-                allShots: firstPlayerStats.potSuccess.allShots + 1,
-              }
-            });
-          }}
-          onPressMissed={() => {
-            setFirstPlayerStats({
-              ...firstPlayerStats,
-              potSuccess: {
-                ...firstPlayerStats.potSuccess,
-                allShots: firstPlayerStats.potSuccess.allShots + 1,
-              }
-            });
-          }}
-        />
+        <View style={styles.statsTextWrap}>
+          <Text style={styles.statsText}>
+            Long Pot Success
+          </Text>
+        </View>
 
-        <Counter
-          percentage={secondPlayerPer.potSuccessPer.toFixed(2)}
-          potted={secondPlayerStats.potSuccess.potted}
-          allShots={secondPlayerStats.potSuccess.allShots}
-          onPressPotted={() => {
-            setSecondPlayerStats({
-              ...secondPlayerStats,
-              potSuccess: {
-                ...secondPlayerStats.potSuccess,
-                potted: secondPlayerStats.potSuccess.potted + 1,
-                allShots: secondPlayerStats.potSuccess.allShots + 1,
-              }
-            });
-          }}
-          onPressMissed={() => {
-            setSecondPlayerStats({
-              ...secondPlayerStats,
-              potSuccess: {
-                ...secondPlayerStats.potSuccess,
-                allShots: secondPlayerStats.potSuccess.allShots + 1,
-              }
-            });
-          }}
-        />
+        <View style={styles.statsCounterWrap}>
 
+          <Counter
+            percentage={firstPlayerPer.longPotSuccessPer.toFixed(2)}
+            potted={firstPlayerStats.longPotSuccess.potted}
+            allShots={firstPlayerStats.longPotSuccess.allShots}
+            onPressPotted={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                potSuccess: {
+                  ...firstPlayerStats.potSuccess,
+                  potted: firstPlayerStats.potSuccess.potted + 1,
+                  allShots: firstPlayerStats.potSuccess.allShots + 1,
+                },
+                longPotSuccess: {
+                  ...firstPlayerStats.longPotSuccess,
+                  potted: firstPlayerStats.longPotSuccess.potted + 1,
+                  allShots: firstPlayerStats.longPotSuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                potSuccess: {
+                  ...firstPlayerStats.potSuccess,
+                  allShots: firstPlayerStats.potSuccess.allShots + 1,
+                },
+                longPotSuccess: {
+                  ...firstPlayerStats.longPotSuccess,
+                  allShots: firstPlayerStats.longPotSuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+
+          <Counter
+            percentage={secondPlayerPer.longPotSuccessPer.toFixed(2)}
+            potted={secondPlayerStats.longPotSuccess.potted}
+            allShots={secondPlayerStats.longPotSuccess.allShots}
+            onPressPotted={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                potSuccess: {
+                  ...secondPlayerStats.potSuccess,
+                  potted: secondPlayerStats.potSuccess.potted + 1,
+                  allShots: secondPlayerStats.potSuccess.allShots + 1,
+                },
+                longPotSuccess: {
+                  ...secondPlayerStats.longPotSuccess,
+                  potted: secondPlayerStats.longPotSuccess.potted + 1,
+                  allShots: secondPlayerStats.longPotSuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                potSuccess: {
+                  ...secondPlayerStats.potSuccess,
+                  allShots: secondPlayerStats.potSuccess.allShots + 1,
+                },
+                longPotSuccess: {
+                  ...secondPlayerStats.longPotSuccess,
+                  allShots: secondPlayerStats.longPotSuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+        </View>
       </View>
+
+      {/* REST POT SUCCESS */}
+      <View style={styles.statsField}>
+
+        <View style={styles.statsTextWrap}>
+          <Text style={styles.statsText}>
+            Rest Pot Success
+          </Text>
+        </View>
+
+        <View style={styles.statsCounterWrap}>
+
+          <Counter
+            percentage={firstPlayerPer.restPotSuccessPer.toFixed(2)}
+            potted={firstPlayerStats.restPotSuccess.potted}
+            allShots={firstPlayerStats.restPotSuccess.allShots}
+            onPressPotted={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                potSuccess: {
+                  ...firstPlayerStats.potSuccess,
+                  potted: firstPlayerStats.potSuccess.potted + 1,
+                  allShots: firstPlayerStats.potSuccess.allShots + 1,
+                },
+                restPotSuccess: {
+                  ...firstPlayerStats.restPotSuccess,
+                  potted: firstPlayerStats.restPotSuccess.potted + 1,
+                  allShots: firstPlayerStats.restPotSuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                potSuccess: {
+                  ...firstPlayerStats.potSuccess,
+                  allShots: firstPlayerStats.potSuccess.allShots + 1,
+                },
+                restPotSuccess: {
+                  ...firstPlayerStats.restPotSuccess,
+                  allShots: firstPlayerStats.restPotSuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+
+          <Counter
+            percentage={secondPlayerPer.restPotSuccessPer.toFixed(2)}
+            potted={secondPlayerStats.restPotSuccess.potted}
+            allShots={secondPlayerStats.restPotSuccess.allShots}
+            onPressPotted={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                potSuccess: {
+                  ...secondPlayerStats.potSuccess,
+                  potted: secondPlayerStats.potSuccess.potted + 1,
+                  allShots: secondPlayerStats.potSuccess.allShots + 1,
+                },
+                restPotSuccess: {
+                  ...secondPlayerStats.restPotSuccess,
+                  potted: secondPlayerStats.restPotSuccess.potted + 1,
+                  allShots: secondPlayerStats.restPotSuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                potSuccess: {
+                  ...secondPlayerStats.potSuccess,
+                  allShots: secondPlayerStats.potSuccess.allShots + 1,
+                },
+                restPotSuccess: {
+                  ...secondPlayerStats.restPotSuccess,
+                  allShots: secondPlayerStats.restPotSuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+        </View>
+      </View>
+
+      {/* SAFETY SUCCESS */}
+      <View style={styles.statsField}>
+
+        <View style={styles.statsTextWrap}>
+          <Text style={styles.statsText}>
+            Safety Success
+          </Text>
+        </View>
+
+        <View style={styles.statsCounterWrap}>
+
+          <Counter
+            percentage={firstPlayerPer.safetySuccessPer.toFixed(2)}
+            potted={firstPlayerStats.safetySuccess.success}
+            allShots={firstPlayerStats.safetySuccess.allShots}
+            onPressPotted={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                safetySuccess: {
+                  ...firstPlayerStats.safetySuccess,
+                  success: firstPlayerStats.safetySuccess.success + 1,
+                  allShots: firstPlayerStats.safetySuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setFirstPlayerStats({
+                ...firstPlayerStats,
+                safetySuccess: {
+                  ...firstPlayerStats.safetySuccess,
+                  allShots: firstPlayerStats.safetySuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+
+          <Counter
+            percentage={secondPlayerPer.safetySuccessPer.toFixed(2)}
+            potted={secondPlayerStats.safetySuccess.success}
+            allShots={secondPlayerStats.safetySuccess.allShots}
+            onPressPotted={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                safetySuccess: {
+                  ...secondPlayerStats.safetySuccess,
+                  success: secondPlayerStats.safetySuccess.success + 1,
+                  allShots: secondPlayerStats.safetySuccess.allShots + 1,
+                }
+              });
+            }}
+            onPressMissed={() => {
+              setSecondPlayerStats({
+                ...secondPlayerStats,
+                safetySuccess: {
+                  ...secondPlayerStats.safetySuccess,
+                  allShots: secondPlayerStats.safetySuccess.allShots + 1,
+                }
+              });
+            }}
+          />
+        </View>
+      </View>
+
+
 
 
 
@@ -153,18 +383,21 @@ function Stats() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,
+    paddingTop: 10,
+  },
+  statsField: {
+    paddingVertical: 5,
   },
   statsTextWrap: {
     marginBottom: 20,
   },
   statsText: {
     fontSize: 16,
-    fontFamily: 'PlusJakartaSansBold',
+    fontFamily: 'PlusJakartaSansSemiBold',
     color: Colors.accent,
     textAlign: 'center',
   },
-  statsCard: {
+  statsCounterWrap: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

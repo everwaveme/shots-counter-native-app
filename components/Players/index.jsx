@@ -54,7 +54,7 @@ function Players() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 25,
+    paddingVertical: 20,
   },
   wrap: {
     flexDirection: 'row',
