@@ -2,6 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { Colors } from '../styleVariables';
 import Counter from '../Counter';
+import AllPottedBalls from '../AllPottedBalls';
+import ResetButtons from '../ResetButtons';
 
 //CRL + M -- перезапуск приложения
 //условный рендеринг && -- полезно
@@ -80,6 +82,64 @@ function Stats() {
       safetySuccessPer: secondPlayerStats.safetySuccess.success / secondPlayerStats.safetySuccess.allShots * 100 || 0,
     });
   }, [secondPlayerStats]);
+
+    //Reset buttons
+    const resetFirstPlayerStats = () => {
+      setFirstPlayerStats({
+        ...firstPlayerStats,
+        potSuccess: {
+          ...firstPlayerStats.potSuccess,
+          potted: 0,
+          allShots: 0,
+        },
+        longPotSuccess: {
+          ...firstPlayerStats.longPotSuccess,
+          potted: 0,
+          allShots: 0,
+        },
+        restPotSuccess: {
+          ...firstPlayerStats.restPotSuccess,
+          potted: 0,
+          allShots: 0,
+        },
+        safetySuccess: {
+          ...firstPlayerStats.safetySuccess,
+          success: 0,
+          allShots: 0,
+        },
+      });
+    };
+  
+    const resetSecondPlayerStats = () => {
+      setSecondPlayerStats({
+        ...secondPlayerStats,
+        potSuccess: {
+          ...secondPlayerStats.potSuccess,
+          potted: 0,
+          allShots: 0,
+        },
+        longPotSuccess: {
+          ...secondPlayerStats.longPotSuccess,
+          potted: 0,
+          allShots: 0,
+        },
+        restPotSuccess: {
+          ...secondPlayerStats.restPotSuccess,
+          potted: 0,
+          allShots: 0,
+        },
+        safetySuccess: {
+          ...secondPlayerStats.safetySuccess,
+          success: 0,
+          allShots: 0,
+        },
+      });
+    };
+  
+    const resetAllStats = () => {
+      resetFirstPlayerStats();
+      resetSecondPlayerStats();
+    };
 
   return (
     <View style={styles.container}>
@@ -373,10 +433,18 @@ function Stats() {
         </View>
       </View>
 
+      {/* ALL POTTED BALLS */}
+      <AllPottedBalls
+        firtsPlayerPottedSum={firstPlayerStats.potSuccess.potted}
+        secondPlayerPottedSum={secondPlayerStats.potSuccess.potted}
+      />
 
-
-
-
+      {/* RESET BUTTONS */}
+      <ResetButtons 
+        onPressFirstPlayerReset={resetFirstPlayerStats}
+        onPressSecondPlayerReset={resetSecondPlayerStats}
+        onPressAllReset={resetAllStats}
+      />
     </View>
   );
 }

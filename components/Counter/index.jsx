@@ -7,7 +7,7 @@ function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed })
   const btnAnimatedValue = {
     pottedBtn: useRef(new Animated.Value(100)).current,
     missedBtn: useRef(new Animated.Value(100)).current,
-  }
+  };
 
   const btnOpacity = {
     pottedBtn: btnAnimatedValue.pottedBtn.interpolate({
@@ -17,8 +17,8 @@ function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed })
     missedBtn: btnAnimatedValue.missedBtn.interpolate({
       inputRange: [0, 100],
       outputRange: [0.5, 1]
-    }),
-  }
+    })
+  };
 
   const fadeInPottedBtn = () => {
     Animated.timing(btnAnimatedValue.pottedBtn, {
