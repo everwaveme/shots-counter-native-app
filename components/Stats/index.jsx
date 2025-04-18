@@ -451,7 +451,7 @@ const styles = StyleSheet.create({
     // paddingTop: 10,
   },
   statsField: {
-    paddingVertical: windowHeight > 800 ? 15 : 5,
+    paddingVertical: windowHeight > 800 ? 15 : 10,
   },
   statsTextWrap: {
     marginBottom: windowHeight > 800 ? 20 : 10,
