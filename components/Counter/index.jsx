@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Pressable, Image, Animated } from 'react-native';
-import { Colors } from '../styleVariables';
+import { Colors, windowWidth, windowHeight } from '../styleVariables';
 import { useRef } from 'react';
 
-function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed }) {
 
+function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed }) {
   const btnAnimatedValue = {
     pottedBtn: useRef(new Animated.Value(100)).current,
     missedBtn: useRef(new Animated.Value(100)).current,
@@ -62,7 +62,6 @@ function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed })
       </View>
 
       <View style={styles.statsPlayerBtnsWrap}>
-
         <Pressable onPress={onPressPotted} onPressIn={fadeInPottedBtn} onPressOut={fadeOutPottedBtn}>
           <Animated.View style={{
             ...styles.statsPlayerPottedBtn,
@@ -97,12 +96,13 @@ function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed })
 const styles = StyleSheet.create({
   statsPlayerWrap: {
     flexBasis: '45%',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 
   statsPlayerText: {
-    fontSize: 16,
+    marginBottom: 15,
+    fontSize: windowHeight > 800 ? 16 : 14,
     fontFamily: 'PlusJakartaSansBold',
     color: Colors.light,
     textAlign: 'center',
@@ -114,27 +114,21 @@ const styles = StyleSheet.create({
   },
 
   statsPlayerPottedBtn: {
-    marginRight: 15,
-    // flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-  },
+    marginHorizontal: windowHeight > 800 ? 7 : 0,
 
+  },
   statsPlayerPottedImg: {
-    width: 50,
-    height: 70,
+    width: windowWidth > 500 ? 70 : 50,
+    height: windowHeight > 800 ? 50 : 25,
   },
 
   statsPlayerMissedBtn: {
-
-    // flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    marginHorizontal: windowHeight > 800 ? 7 : 0,
   },
 
   statsPlayerMissedImg: {
-    width: 50,
-    height: 70,
+    width: windowWidth > 500 ? 70 : 50,
+    height: windowHeight > 800 ? 50 : 25,
   }
 });
 

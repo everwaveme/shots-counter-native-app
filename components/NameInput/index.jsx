@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput } from 'react-native';
-import { Colors } from '../styleVariables';
+import { Colors, windowHeight } from '../styleVariables';
 
 function NameInput({ value, placeholder, onChangeText }) {
 
@@ -17,7 +17,7 @@ function NameInput({ value, placeholder, onChangeText }) {
 
 const styles = StyleSheet.create({
   nameInput: {
-    fontSize: 16,
+    fontSize: windowHeight > 800 ? 16 : 14,
     fontFamily: 'PlusJakartaSansBold',
     color: Colors.light,
     textAlign: 'center',

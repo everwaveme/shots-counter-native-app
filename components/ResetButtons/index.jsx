@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Animated } from 'react-native';
-import { Colors } from '../styleVariables';
+import { Colors, windowHeight } from '../styleVariables';
 import { useRef } from 'react';
 
 function ResetButtons({ onPressFirstPlayerReset, onPressSecondPlayerReset, onPressAllReset }) {
@@ -125,15 +125,14 @@ function ResetButtons({ onPressFirstPlayerReset, onPressSecondPlayerReset, onPre
 
 const styles = StyleSheet.create({
   resetBtnsWrap: {
-    paddingTop: 30,
-    // paddingHorizontal: 20,
+    paddingTop: windowHeight > 800 ? 20 : 10,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
   resetBtn: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingVertical: windowHeight > 800 ? 8 : 5,
+    paddingHorizontal: windowHeight > 800 ? 16 : 12,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: Colors.accent,
@@ -141,16 +140,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   resetBtnText: {
-    fontSize: 16,
+    fontSize: windowHeight > 800 ? 16 : 14,
     fontFamily: 'PlusJakartaSansBold',
     color: Colors.light,
     textAlign: 'center',
-    lineHeight: 18,
+    lineHeight: windowHeight > 800 ? 18 : 16,
   },
   resetAllBtn: {
-    marginHorizontal: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    marginHorizontal: windowHeight > 800 ? 20 : 15,
+    paddingVertical: windowHeight > 800 ? 8 : 5,
+    paddingHorizontal: windowHeight > 800 ? 16 : 12,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.accent,

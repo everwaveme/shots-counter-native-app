@@ -1,3 +1,5 @@
+import { Dimensions } from 'react-native';
+
 export const Colors = {
   light: '#fff',
   semiLight: '#919191',
@@ -9,3 +11,6 @@ export const Colors = {
   missedBtn: '#ec2049',
   error: '#ec2049',
 };
+
+export const windowWidth = Dimensions.get('window').width;
+export const windowHeight = Dimensions.get('window').height;

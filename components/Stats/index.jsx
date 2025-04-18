@@ -1,12 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
-import { Colors } from '../styleVariables';
+import { Colors, windowHeight } from '../styleVariables';
 import Counter from '../Counter';
 import AllPottedBalls from '../AllPottedBalls';
 import ResetButtons from '../ResetButtons';
-
-//CRL + M -- перезапуск приложения
-//условный рендеринг && -- полезно
 
 function Stats() {
   //First player stats state
@@ -451,16 +448,16 @@ function Stats() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 10,
+    // paddingTop: 10,
   },
   statsField: {
-    paddingVertical: 5,
+    paddingVertical: windowHeight > 800 ? 15 : 5,
   },
   statsTextWrap: {
-    marginBottom: 20,
+    marginBottom: windowHeight > 800 ? 20 : 10,
   },
   statsText: {
-    fontSize: 16,
+    fontSize: windowHeight > 800 ? 16 : 14,
     fontFamily: 'PlusJakartaSansSemiBold',
     color: Colors.accent,
     textAlign: 'center',
@@ -469,6 +466,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: "100%",
   },
 });
 

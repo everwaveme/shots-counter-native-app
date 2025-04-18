@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from './components/styleVariables';
 import { useFonts } from 'expo-font';
@@ -19,21 +19,21 @@ function App() {
   });
 
   useEffect(() => {
-    if(loaded) {
+    if (loaded) {
       SplashScreen.hideAsync();
     }
-  },[loaded]);
+  }, [loaded]);
 
   useEffect(() => {
-    if(error) {
+    if (error) {
       throw error;
     }
-  },[error])
+  }, [error])
 
-  if(!loaded) {
+  if (!loaded) {
     return null;
   }
-
+  
   return (
     <SafeAreaProvider>
       <StatusBar style='light' />
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
     paddingHorizontal: 5,
     backgroundColor: Colors.dark,
   },

@@ -1,6 +1,6 @@
 import { StyleSheet, View, Image, TextInput } from 'react-native';
 import { useState } from 'react';
-import { Colors } from '../styleVariables';
+import { windowHeight } from '../styleVariables';
 import NameInput from '../NameInput';
 
 function Players() {
@@ -54,8 +54,7 @@ function Players() {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: 10,
-    paddingBottom: 20,
+    paddingBottom: windowHeight > 800 ? 20 : 10,
   },
   wrap: {
     flexDirection: 'row',
@@ -75,8 +74,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   vsIcon: {
-    width: 10,
-    height: 10,
+    width: windowHeight > 800 ? 10 : 8,
+    height: windowHeight > 800 ? 10 : 8,
   },
 });
 

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { Colors } from '../styleVariables';
+import { Colors, windowHeight } from '../styleVariables';
 
 function AllPottedBalls({ firtsPlayerPottedSum, secondPlayerPottedSum }) {
   return (
@@ -27,7 +27,7 @@ function AllPottedBalls({ firtsPlayerPottedSum, secondPlayerPottedSum }) {
 
 const styles = StyleSheet.create({
   AllPottedBalls: {
-    paddingVertical: 10,
+    paddingVertical: windowHeight > 800 ? 15 : 10,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   AllPottedBallsSum: {
-    fontSize: 16,
+    fontSize: windowHeight > 800 ? 16 : 14,
     fontFamily: 'PlusJakartaSansBold',
     color: Colors.light,
     textAlign: 'center',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   AllPottedBallsText: {
-    fontSize: 16,
+    fontSize: windowHeight > 800 ? 16 : 14,
     fontFamily: 'PlusJakartaSansSemiBold',
     color: Colors.accent,
     textAlign: 'center',
