@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from './components/styleVariables';
 import { useFonts } from 'expo-font';
@@ -33,13 +33,17 @@ function App() {
   if (!loaded) {
     return null;
   }
-  
+
   return (
     <SafeAreaProvider>
       <StatusBar style='light' />
       <SafeAreaView style={styles.container} edges={['top']}>
-        <Players />
-        <Stats />
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        >
+          <Players />
+          <Stats />
+        </KeyboardAvoidingView>
       </SafeAreaView>
     </SafeAreaProvider>
   );

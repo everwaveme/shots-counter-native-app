@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, TextInput } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { useState } from 'react';
 import { windowHeight } from '../styleVariables';
 import NameInput from '../NameInput';
