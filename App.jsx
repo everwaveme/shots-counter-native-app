@@ -10,6 +10,8 @@ import { useEffect } from 'react';
 
 SplashScreen.preventAutoHideAsync();
 
+// ткштпку
+
 function App() {
   const [loaded, error] = useFonts({
     PlusJakartaSansRegular: require('./assets/fonts/PlusJakartaSans-Regular.ttf'),
