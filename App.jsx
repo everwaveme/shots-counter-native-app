@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-import { Dimensions, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from './components/styleVariables';
 import { useFonts } from 'expo-font';
@@ -8,14 +8,17 @@ import Players from './components/Players';
 import Stats from './components/Stats';
 import { useEffect } from 'react';
 
+// eas build --platform android
+// eas build -p android --profile preview
+
 SplashScreen.preventAutoHideAsync();
 
 function App() {
   const [loaded, error] = useFonts({
-    PlusJakartaSansRegular: require('./assets/fonts/PlusJakartaSans-Regular.ttf'),
-    PlusJakartaSansMedium: require('./assets/fonts/PlusJakartaSans-Medium.ttf'),
-    PlusJakartaSansSemiBold: require('./assets/fonts/PlusJakartaSans-SemiBold.ttf'),
-    PlusJakartaSansBold: require('./assets/fonts/PlusJakartaSans-Bold.ttf')
+    OnestRegular: require('./assets/fonts/Onest-Regular.ttf'),
+    OnestMedium: require('./assets/fonts/Onest-Medium.ttf'),
+    OnestSemiBold: require('./assets/fonts/Onest-SemiBold.ttf'),
+    OnestBold: require('./assets/fonts/Onest-Bold.ttf')
   });
 
   useEffect(() => {

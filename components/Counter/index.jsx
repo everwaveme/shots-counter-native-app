@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Pressable, Image, Animated } from 'react-native
 import { Colors, windowWidth, windowHeight } from '../styleVariables';
 import { useRef } from 'react';
 
-
 function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed }) {
   const btnAnimatedValue = {
     pottedBtn: useRef(new Animated.Value(100)).current,
@@ -87,7 +86,6 @@ function Counter({ percentage, potted, allShots, onPressPotted, onPressMissed })
             />
           </Animated.View>
         </Pressable>
-
       </View>
     </View>
   );
@@ -103,7 +101,7 @@ const styles = StyleSheet.create({
   statsPlayerText: {
     marginBottom: 15,
     fontSize: windowHeight > 800 ? 16 : 14,
-    fontFamily: 'PlusJakartaSansBold',
+    fontFamily: 'OnestBold',
     color: Colors.light,
     textAlign: 'center',
   },
@@ -115,7 +113,6 @@ const styles = StyleSheet.create({
 
   statsPlayerPottedBtn: {
     marginHorizontal: windowHeight > 800 ? 7 : 0,
-
   },
   statsPlayerPottedImg: {
     width: windowWidth > 500 ? 70 : 50,

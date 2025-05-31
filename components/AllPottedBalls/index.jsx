@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   AllPottedBallsSum: {
     fontSize: windowHeight > 800 ? 16 : 14,
-    fontFamily: 'PlusJakartaSansBold',
+    fontFamily: 'OnestBold',
     color: Colors.light,
     textAlign: 'center',
   },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   AllPottedBallsText: {
     fontSize: windowHeight > 800 ? 16 : 14,
-    fontFamily: 'PlusJakartaSansSemiBold',
+    fontFamily: 'OnestSemiBold',
     color: Colors.accent,
     textAlign: 'center',
   }

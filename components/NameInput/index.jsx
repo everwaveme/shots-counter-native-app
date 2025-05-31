@@ -18,7 +18,7 @@ function NameInput({ value, placeholder, onChangeText }) {
 const styles = StyleSheet.create({
   nameInput: {
     fontSize: windowHeight > 800 ? 16 : 14,
-    fontFamily: 'PlusJakartaSansBold',
+    fontFamily: 'OnestBold',
     color: Colors.light,
     textAlign: 'center',
   }
