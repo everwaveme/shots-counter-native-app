@@ -6,6 +6,6 @@ With intuitive controls and clean visualizations, SSC App helps you identify str
 
 SSC App created with React Native for Android and iOS.
 
-<b><a href="https://c.homeofsnooker.ru/">Link to web version</a></b>
+<a href="https://app.homeofsnooker.ru/">Web</a> and <a href="https://play.google.com/store/apps/details?id=ru.homeofsnooker.sscapp">Android</a> versions.
 
 <img src="/screens.png" alt="promo 1" width="100%"/>
